@@ -1,11 +1,11 @@
 const { connection, router } = require('../config');
 
 router.post("/loginpelajar", function(req, res) {
-  var id = req.body.nama_pelajar;
-  var ndp = req.body.no_ndp;
+  var name = req.body.name;
+  var ndp = req.body.ndp;
   connection.query(
     "SELECT * FROM pelajar WHERE nama_pelajar = ?",
-    [email],
+    [namapelajar],
     function(error, results, fields) {
       console.log(req.body);
       if (error) {
