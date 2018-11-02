@@ -4,7 +4,7 @@ router.post("/login", function(req, res) {
   var email = req.body.email;
   var password = req.body.password;
   connection.query(
-    "SELECT * FROM pengajar WHERE email_pengajar = ?",
+    "SELECT a.*,b.jawatan AS jwt FROM pengajar a INNER JOIN jawatan b ON a.jawatan=b.id WHERE email_pengajar = ?",
     [email],
     function(error, results, fields) {
       console.log(req.body);
